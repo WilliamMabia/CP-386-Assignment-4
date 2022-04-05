@@ -5,6 +5,7 @@ In this assignment I wrote a multi threaded program that implements the banker's
 **Bankers Algorithm:** Customers request and release resources from the bank. The banker will keep track of the resources. The
 banker will grant a request if it satisfies the safety algorithm. If a request does not leave the system in a
 safe state, the banker will deny it <br> 
+<br>
 **Best-Fit Algorithm:** This algorithm involves managing a contiguous region of memory of size MAX where addresses may range from 0 ... MAX − 1 <br>
 
 ## Makefile: ##
@@ -12,7 +13,7 @@ safe state, the banker will deny it <br>
 
 ## Screenshots ##
 
-## Individual COntribution ##
+## Individual Contribution ##
 **Github:**
 READ ME: @author: William Mabia
 
