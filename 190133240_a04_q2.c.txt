@@ -1,0 +1,212 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <pthread.h>
+#include <time.h>
+#include <sys/stat.h>
+#include <stdbool.h>
+#include <semaphore.h>
+#include <ctype.h>
+
+/* use this to run */
+//gcc -Werror -Wall -g -std=gnu99 -o q2 q2->c -lrt -lpthread
+/* universal variable declaration*/
+#define BUFFER_SIZE 100
+
+typedef struct mem {
+	char pid[BUFFER_SIZE];
+	int size;
+
+	int start_memory_address;
+	int end_memory_address;
+
+	struct mem *next;
+	struct mem *prev;
+
+};
+
+struct mem *curr;
+
+struct mem *mem_start;
+struct mem *mem_end;
+
+struct mem *hole_start;
+struct mem *hole_end;
+
+int allocated_memory;
+int free_memory;
+
+int hole_count;
+int process_count;
+
+int max_mem;
+
+/* main functions */
+void get_status();
+char* resource_request(char pid[BUFFER_SIZE], int user_request);
+char* resource_release(char pid[BUFFER_SIZE]);
+
+/* start */
+
+int main(int argc, char *args[]) {
+
+	/* get resources from run arguments*/
+
+	if (argc < 3) {
+		printf("Please enter correct arguments->\n");
+		return 1;
+	} else {
+
+		int s = atoi(args[1]);
+		if (s <= 0) {
+			printf("Cannot have size less than or equal to zero\n");
+			return 1;
+		}
+		/* display general information*/
+		printf("Allocated %i bytes of memory\n", s);
+
+	}
+
+	max_mem = (int) atoi(args[1]);
+	/**
+
+	 curr = (struct Mem*) malloc(sizeof(struct Mem));
+
+	 strcpy(curr->pid, "NONE");
+	 curr->size = s;
+	 curr->start_memory_address = 0;
+	 curr->end_memory_address = s - 1;
+	 */
+
+	/* Keep Program running while user enters inputs or until user enters exit command */
+	int is_running = 1;
+	char *input = NULL;
+	ssize_t console_in = 0; //using this variable to read each line from console
+	size_t input_size = 0; // stores address of the variable that holds the size of the input buffer
+
+	/* keep loop running for user commands */
+	while (is_running == 1) {
+		printf("Enter Command: ");
+		console_in = getline(&input, &input_size, stdin);
+		if (console_in == -1) { //error handling
+			is_running = 0;
+		}
+
+		else {
+			/* temp_ptr with case handling
+			 * convert input to lower case characters*/
+			char *inputchar_pointer = input;
+			for (; *inputchar_pointer; ++inputchar_pointer) {
+				if (*inputchar_pointer == '\n') {
+					*inputchar_pointer = '\0';
+				} else
+					*inputchar_pointer = tolower(*inputchar_pointer);
+			}
+
+			/* RQ: requesting resources*/
+			/* make sure request leave system safe*/
+			if (input[0] == 'r' && input[1] == 'q' && strlen(input) >= 2) {
+				//printf("%s", resource_request(args[0], atoi(args[1])));
+				resource_request(args[0], atoi(args[1]));
+			}
+
+			/* RL: release resources and updates data structure*/
+			else if (strlen(input) >= 2 && input[0] == 'r' && input[1] == 'l') {
+				//printf("%s", resource_release(args[0]));
+				resource_release(args[0]);
+			}
+
+			/* if user enters Status*/
+			else if (strcmp(input, "status") == 0) {
+				get_status();
+			}
+
+			/* if user enters Exit*/
+			else if (strcmp(input, "exit") == 0) {
+				is_running = 0;
+				printf("Program Ended\n");
+			}
+			// otherwise->->->
+			else
+				printf("Invalid Command\n");
+		}
+	}
+
+	return 0;
+}
+
+void get_status() {
+
+	/* printed according to sample output code in question*/
+
+	printf("Partitions [Allocated memory = %d]: \n", allocated_memory);
+
+	struct mem *temp_ptr = curr;
+
+	while (!(temp_ptr == NULL)) {
+		printf("Address [%d:%d] Process %s\n", temp_ptr->start_memory_address,
+				temp_ptr->end_memory_address, temp_ptr->pid);
+		temp_ptr = temp_ptr->next;
+	}
+
+	printf("\n");
+	printf("Holes [Free memory = %d]:\n", free_memory);
+
+	while (!(temp_ptr == NULL)) {
+		printf("Address [%d:%d] len = %d\n", temp_ptr->start_memory_address,
+				temp_ptr->end_memory_address, temp_ptr->size);
+		temp_ptr = temp_ptr->next;
+
+	}
+
+}
+
+void resource_request(char pid[BUFFER_SIZE], int user_request) {
+
+	if (user_request <= 0) {
+		printf("Invalid size entered\n");
+		return;
+	}
+	/* variable declaration */
+	if (user_request > 1) {
+		printf("Successfully allocated %i to process %s\n", user_request, pid);
+	} else {
+
+		printf("no hole has enough size\n");
+	}
+}
+
+void resource_release(char pid[BUFFER_SIZE]) {
+	struct Block *c = curr;
+	struct Block *p = NULL;
+
+	printf("releasing memory for process %s\n", pid);
+
+	while (c != NULL) {
+		if (strcmp(c->pid, pid) == 0) {
+			strcpy(c->pid, "");
+		}
+
+		/*change ptrs*/
+
+		if (p != NULL && strcmp(c->pid, "") == 0 && strcmp(p->pid, "") == 0) {
+
+			p->end_memory_address = c->end_memory_address;
+			p->size += c->size;
+
+			p->next = c->next;
+
+			free(c); // make sure
+			c = p->next;
+		}
+
+		/* do reference update and move on*/
+		else {
+			p = c;
+			c = c->next;
+		}
+	}
+	printf("Successfully released memory for process %s\n", pid);
+}
+
