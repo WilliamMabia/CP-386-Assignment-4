@@ -9,9 +9,9 @@ safe state, the banker will deny it <br>
 **Best-Fit Algorithm:** This algorithm involves managing a contiguous region of memory of size MAX where addresses may range from 0 ... MAX − 1 <br>
 
 ## Screenshots ##
-![Input for Bankers ALgorithm](/relative/path/to/Input.png?raw=true "Input for Bankers ALgorithm")
-![Output for Bankers ALgorithm](/relative/path/to/Output.png?raw=true "Output for Bankers ALgorithm")
-![Output for Best Fit ALgorithm](/relative/path/to/Output 2.png?raw=true "Output for Best Fit ALgorithm")
+![Input for Bankers ALgorithm](/relative/path/to/Input.png?raw=true "Input for Bankers ALgorithm") <br>
+![Output for Bankers ALgorithm](/relative/path/to/Output.png?raw=true "Output for Bankers ALgorithm") <br>
+![Output for Best Fit ALgorithm](/relative/path/to/Output\ 2.png?raw=true "Output for Best Fit ALgorithm") <br>
 
 ## Individual Contribution ##
 **Github:**
