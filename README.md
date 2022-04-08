@@ -29,14 +29,14 @@ READ ME: @author: William Mabia
 • string_to_array @author: William Mabia <br>
 • output_print @author: William Mabia <br>
 
-**Question 2**
+**Question 2** <br>
 • get_status @author: William Mabia <br>
 • resource_request @author: William Mabia <br>
 • resource_release @author: William Mabia <br>
 
 
 ## Use Examples ##
-**Bankers Algorithm:** used majorly in the banking system to avoid deadlock. It helps you to identify whether a loan will be given or not. This algorithm is used to test for safely simulating the allocation for determining the maximum amount available for all resources.
+**Bankers Algorithm:** used majorly in the banking system to avoid deadlock. It helps you to identify whether a loan will be given or not. This algorithm is used to test for safely simulating the allocation for determining the maximum amount available for all resources.<br>
 **Best-Fit Algorithm:** Using this Algorithm, the operating system allocates the job minimum possible space in the memory, making memory management very efficient. To save memory from getting wasted, it is the best method.
 
 ## About Developers ##
