@@ -18,7 +18,7 @@ safe state, the banker will deny it <br>
 **Github:**
 READ ME: @author: William Mabia
 
-**Question 1**
+**Question 1** <br>
 • get_resources @author: William Mabia <br>
 • get_status @author: William Mabia <br>
 • execute_customers @author: William Mabia <br>
