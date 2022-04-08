@@ -9,20 +9,10 @@ safe state, the banker will deny it <br>
 **Best-Fit Algorithm:** This algorithm involves managing a contiguous region of memory of size MAX where addresses may range from 0 ... MAX − 1 <br>
 
 ## Screenshots ##
-![Input for Bankers ALgorithm](/relative/path/to/Input.png?raw=true "Input for Bankers ALgorithm") <br>
-![Output for Bankers ALgorithm](/relative/path/to/Output.png?raw=true "Output for Bankers ALgorithm") <br>
-![Output for Best Fit ALgorithm](/relative/path/to/Output\ 2.png?raw=true "Output for Best Fit ALgorithm") <br>
-
 ![Input for Bankers ALgorithm](https://i.postimg.cc/bs0gTbSM/Input.png "Input for Bankers ALgorithm") <br>
 ![Output for Bankers ALgorithm](https://i.postimg.cc/MndDkSDm/output.png "Output for Bankers ALgorithm") <br>
 ![Output for Best Fit ALgorithm](https://i.postimg.cc/SnyrtsWK/output-2.png[/img] "Output for Best Fit ALgorithm") <br>
 
-[url=https://postimg.cc/bs0gTbSM][img]https://i.postimg.cc/bs0gTbSM/Input.png[/img][/url]  <br>
-
-[url=https://postimg.cc/MndDkSDm][img]https://i.postimg.cc/MndDkSDm/output.png[/img][/url]  <br>
-
-[url=https://postimg.cc/SnyrtsWK][img]https://i.postimg.cc/SnyrtsWK/output-2.png[/img][/url]  <br>
-![Alt text](http://full/path/to/img.jpg "Optional title")
 
 ## Individual Contribution ##
 **Github:**
