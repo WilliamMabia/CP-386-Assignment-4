@@ -1,7 +1,7 @@
 # CP-386-Assignment-4
 
 ## Description: ##
-In this assignment I wrote a multi threaded program that implements the banker's algorithm and a program thsat uses best-fit algorithm of contigous memory allocation. <br>
+In this assignment I wrote a multi threaded program that implements the banker's algorithm and a program that uses best-fit algorithm of contigous memory allocation. <br>
 **Bankers Algorithm:** Customers request and release resources from the bank. The banker will keep track of the resources. The
 banker will grant a request if it satisfies the safety algorithm. If a request does not leave the system in a
 safe state, the banker will deny it <br> 
