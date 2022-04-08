@@ -8,10 +8,10 @@ safe state, the banker will deny it <br>
 <br>
 **Best-Fit Algorithm:** This algorithm involves managing a contiguous region of memory of size MAX where addresses may range from 0 ... MAX − 1 <br>
 
-## Makefile: ##
-• 
-
 ## Screenshots ##
+![Input for Bankers ALgorithm](/relative/path/to/Input.png?raw=true "Input for Bankers ALgorithm")
+![Output for Bankers ALgorithm](/relative/path/to/Output.png?raw=true "Output for Bankers ALgorithm")
+![Output for Best Fit ALgorithm](/relative/path/to/Output 2.png?raw=true "Output for Best Fit ALgorithm")
 
 ## Individual Contribution ##
 **Github:**
@@ -28,12 +28,15 @@ READ ME: @author: William Mabia
 • string_to_array @author: William Mabia <br>
 • output_print @author: William Mabia <br>
 
+**Question 2**
+• get_status @author: William Mabia <br>
+• resource_request @author: William Mabia <br>
+• resource_release @author: William Mabia <br>
 
-## Features ##
-
-## Test Cases ##
 
 ## Use Examples ##
+**Bankers Algorithm:** used majorly in the banking system to avoid deadlock. It helps you to identify whether a loan will be given or not. This algorithm is used to test for safely simulating the allocation for determining the maximum amount available for all resources.
+**Best-Fit Algorithm:** Using this Algorithm, the operating system allocates the job minimum possible space in the memory, making memory management very efficient. To save memory from getting wasted, it is the best method.
 
 ## About Developers ##
 **William Mabia:** <br>
